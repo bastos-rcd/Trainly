@@ -16,10 +16,6 @@ export default function Home() {
     checkUser();
   }, [navigate]);
 
-  const handleChange = (e) => {
-    setName(e.target.value);
-  };
-
   const handleClick = async (e) => {
     e.preventDefault();
     if (name.trim().length === 0) return;
@@ -33,9 +29,9 @@ export default function Home() {
       <input
         type="text"
         value={name}
-        onChange={handleChange}
+        onChange={(e) => setName(e.target.value)}
         placeholder="Pseudo"
-        className="w-3/4 border rounded-lg bg-slate-100 p-2"
+        className="w-3/4 border rounded-lg p-2"
       />
 
       <button

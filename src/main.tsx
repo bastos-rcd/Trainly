@@ -3,10 +3,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./style.css";
 import App from "./App.jsx";
-import ProtectedRoute from "./components /ProtectedRoute.jsx";
+import ProtectedRoute from "./components /protected-route.jsx";
 
-import Home from "./pages/Home.jsx";
-import Programs from "./pages/Programs.jsx";
+import Home from "./components /home.jsx";
+
+import ProgramsList from "./components /programs/programs-list.jsx";
+import ProgramsNew from "./components /programs/programs-new.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +20,15 @@ const router = createBrowserRouter([
         path: "/programs",
         element: (
           <ProtectedRoute>
-            <Programs />
+            <ProgramsList />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/new-program",
+        element: (
+          <ProtectedRoute>
+            <ProgramsNew />
           </ProtectedRoute>
         ),
       },

@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { getPrograms } from "../services/programService";
+import { useNavigate, Link } from "react-router-dom";
+import { getPrograms } from "../../services/programService";
 
-export default function Programs() {
+export default function ProgramsList() {
   const navigate = useNavigate();
   const [programs, setPrograms] = useState([]);
 
