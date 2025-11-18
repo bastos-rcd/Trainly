@@ -45,7 +45,7 @@ export default function ProgramsList() {
               )}
             </div>
 
-            <span className="">{program.workouts?.length ?? 0} séances</span>
+            <span>{program.workouts?.length ?? 0} séances</span>
           </div>
         ))}
       </div>

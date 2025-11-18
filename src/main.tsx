@@ -9,6 +9,7 @@ import Home from "./components /home.jsx";
 
 import ProgramsList from "./components /programs/programs-list.jsx";
 import ProgramsNew from "./components /programs/programs-new.jsx";
+import ProgramsDetails from "./components /programs/programs-details.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <ProgramsNew />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/programs/:id",
+        element: (
+          <ProtectedRoute>
+            <ProgramsDetails />
           </ProtectedRoute>
         ),
       },
