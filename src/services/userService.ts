@@ -1,10 +1,11 @@
 import { db } from "../db/db";
+import type { User } from "../models/models";
 
-export async function getUser(): Promise<{ name: string }> {
-    return await db.table("user").toArray().then((users) => users[0]);
+export async function getUser(): Promise<User> {
+    return await db.user.toArray().then((users) => users[0]);
 }
 
 export async function setUser(name: string): Promise<void> {
-    db.table("user").clear();
-    await db.table("user").add({ name });
+    db.user.clear();
+    await db.user.add({ name });
 }

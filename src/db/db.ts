@@ -1,7 +1,17 @@
-import Dexie from "dexie";
+import Dexie, { type Table } from "dexie";
+import type { User, Program } from "../models/models";
 
-export const db: Dexie = new Dexie("trainlydb");
+export class TrainlyDB extends Dexie {
+    user!: Table<User>;
+    programs!: Table<Program>;
 
-db.version(1).stores({
-    user: 'name'
-});
+    constructor() {
+        super("trainlydb");
+        this.version(1).stores({
+            user: 'name',
+            programs: '++id,name,type'
+        });
+    }
+}
+
+export const db = new TrainlyDB();
