@@ -9,7 +9,7 @@ export default function App() {
   };
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden bg-slate-200">
+    <div className="h-screen flex flex-col overflow-hidden bg-slate-100">
       <header className="fixed top-0 z-50 w-full flex flex-row justify-between items-center bg-transparent p-4 md:p-8">
         <Link to="/">
           <img className="rounded-xl w-10 h-auto" src="/favicon.webp" />
@@ -44,7 +44,7 @@ export default function App() {
         </nav>
       </header>
 
-      <div className="flex-1 overflow-y-auto pt-16 px-4">
+      <div className="flex-1 flex flex-col justify-start items-center overflow-y-auto pt-16 px-4 gap-y-4">
         <Outlet />
       </div>
     </div>
