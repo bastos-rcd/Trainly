@@ -21,7 +21,3 @@ export interface Program {
     type: ProgramType;
     workouts: Workout[];
 }
-
-export interface User {
-    name: string;
-}
