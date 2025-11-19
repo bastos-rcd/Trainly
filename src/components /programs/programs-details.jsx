@@ -11,7 +11,6 @@ export default function ProgramsDetails() {
     async function load() {
       const p = await getProgram(Number(id));
       setProgram(p);
-      console.log(p.workouts);
     }
     load();
   }, [id]);
@@ -37,8 +36,10 @@ export default function ProgramsDetails() {
 
         <button
           onClick={async () => {
-            await deleteProgram(program.id);
-            navigate("/programs");
+            if (confirm("Supprimer ce programme ?")) {
+              await deleteProgram(program.id);
+              navigate("/programs");
+            }
           }}
         >
           <img src="/trash.webp" className="w-8 bg-red-400 rounded-lg p-2" />

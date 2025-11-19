@@ -1,6 +1,6 @@
 export type ProgramType = "bodybuilding" | "powerlifting";
 
-export type ExerciseType = "top set" | "drop set" | "super set" | "standard";
+export type ExerciseType = "super set" | "standard";
 
 export interface Exercise {
     name: string;

@@ -13,8 +13,17 @@ export async function updateWorkout(programId: number, index: number, updated: W
     const program = await getProgram(programId);
     if (!program) return;
 
-    program.workouts[index] = updated;
-    await updateProgram(programId, { workouts: program.workouts });
+    const oldWorkout = program.workouts[index];
+    const newWorkout: Workout = {
+        ...oldWorkout,
+        ...updated,
+        exercises: oldWorkout.exercises
+    };
+
+    const newWorkouts = [...program.workouts];
+    newWorkouts[index] = newWorkout;
+
+    await updateProgram(programId, { workouts: newWorkouts });
 }
 
 export async function deleteWorkout(programId: number, index: number): Promise<void> {

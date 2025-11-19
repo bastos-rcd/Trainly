@@ -17,7 +17,7 @@ export default function ProgramsNew() {
       workouts: [],
     });
 
-    navigate("/programs");
+    navigate("/");
   };
 
   return (
