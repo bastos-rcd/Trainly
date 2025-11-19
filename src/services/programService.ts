@@ -20,3 +20,8 @@ export async function updateProgram(id: number, updated: Partial<Program>): Prom
 export async function deleteProgram(id: number): Promise<void> {
     await db.programs.delete(id);
 }
+
+export async function importPrograms(programs: Program[]): Promise<void> {
+    await db.programs.clear();
+    await db.programs.bulkAdd(programs);
+}
