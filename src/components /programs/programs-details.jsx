@@ -21,7 +21,7 @@ export default function ProgramsDetails() {
       <div className="w-full flex flex-row justify-between items-center gap-x-4">
         <h1 className="text-xl font-bold">{program?.name}</h1>
 
-        <Link to="/programs">
+        <Link to="/">
           <img src="/back.webp" className="w-8 bg-blue-400 rounded-lg p-2" />
         </Link>
       </div>

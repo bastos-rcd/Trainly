@@ -6,6 +6,7 @@ import App from "./App.jsx";
 
 import ProgramsList from "./components /programs/programs-list.jsx";
 import ProgramsNew from "./components /programs/programs-new.jsx";
+import ProgramsEdit from "./components /programs/programs-edit.jsx";
 import ProgramsDetails from "./components /programs/programs-details.jsx";
 
 import WorkoutsNew from "./components /workouts/workouts-new.jsx";
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/programs/:id",
         element: <ProgramsDetails />,
+      },
+      {
+        path: "/programs/:id/edit",
+        element: <ProgramsEdit />,
       },
       {
         path: "/programs/:id/new-workout",

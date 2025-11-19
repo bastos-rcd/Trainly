@@ -1,28 +1,38 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { addProgram } from "../../services/programService";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
+import { getProgram, updateProgram } from "../../services/programService";
 
-export default function ProgramsNew() {
+export default function ProgramsEdit() {
+  const { id } = useParams();
   const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [type, setType] = useState("bodybuilding");
+
+  useEffect(() => {
+    async function load() {
+      const program = await getProgram(Number(id));
+      if (program) {
+        setName(program.name);
+        setType(program.type);
+      }
+    }
+
+    load();
+  }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim()) return;
 
-    await addProgram({
-      name,
-      type,
-      workouts: [],
-    });
+    await updateProgram(Number(id), { name, type });
 
-    navigate("/programs");
+    navigate(`/programs/${id}`);
   };
 
   return (
     <>
-      <h1 className="text-xl font-bold">Nouveau programme</h1>
+      <h1 className="text-xl font-bold">Modifier le programme</h1>
 
       <form
         onSubmit={handleSubmit}
@@ -54,7 +64,7 @@ export default function ProgramsNew() {
           </button>
 
           <Link
-            to="/"
+            to={`/programs/${id}`}
             className="w-1/2 text-white text-center uppercase rounded-lg bg-red-500 p-2"
           >
             Annuler
