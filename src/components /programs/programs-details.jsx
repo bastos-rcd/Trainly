@@ -27,6 +27,10 @@ export default function ProgramsDetails() {
       </div>
 
       <div className="flex flex-row justify-center items-center gap-x-4">
+        <Link to={`/programs/${program?.id}/new-workout`}>
+          <img src="/new.webp" className="w-8 bg-emerald-400 rounded-lg p-2" />
+        </Link>
+
         <Link to={`/programs/${program?.id}/edit`}>
           <img src="/edit.webp" className="w-8 bg-yellow-400 rounded-lg p-2" />
         </Link>

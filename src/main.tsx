@@ -8,6 +8,8 @@ import ProgramsList from "./components /programs/programs-list.jsx";
 import ProgramsNew from "./components /programs/programs-new.jsx";
 import ProgramsDetails from "./components /programs/programs-details.jsx";
 
+import WorkoutsNew from "./components /workouts/workouts-new.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/programs/:id",
         element: <ProgramsDetails />,
+      },
+      {
+        path: "/programs/:id/new-workout",
+        element: <WorkoutsNew />,
       },
     ],
   },
