@@ -40,8 +40,12 @@ export default function App() {
           hidden={isOpen}
           className="text-white font-extralight absolute top-16 right-4 bg-[#1f1f1f] rounded-xl flex flex-col justify-center items-center p-4 gap-y-2"
         >
-          <Link to="/import">Importer</Link>
-          <Link to="/export">Exporter</Link>
+          <Link to="/import" onClick={toggleMenu}>
+            Importer
+          </Link>
+          <Link to="/export" onClick={toggleMenu}>
+            Exporter
+          </Link>
         </nav>
       </header>
 
