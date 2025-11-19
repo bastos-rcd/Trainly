@@ -38,7 +38,7 @@ export default function ProgramsDetails() {
           onClick={async () => {
             if (confirm("Supprimer ce programme ?")) {
               await deleteProgram(program.id);
-              navigate("/programs");
+              navigate("/");
             }
           }}
         >
