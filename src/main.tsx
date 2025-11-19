@@ -16,6 +16,9 @@ import WorkoutsDetails from "./components /workouts/workouts-details.jsx";
 import ExercisesNew from "./components /exercises/exercises-new.jsx";
 import ExercisesEdit from "./components /exercises/exercises-edit.jsx";
 
+import Import from "./components /import.jsx";
+import Export from "./components /export.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +56,14 @@ const router = createBrowserRouter([
       {
         path: "/programs/:id/workouts/:workoutIndex/exercises/:exerciseIndex/edit",
         element: <ExercisesEdit />,
+      },
+      {
+        path: "/import",
+        element: <Import />,
+      },
+      {
+        path: "/export",
+        element: <Export />,
       },
     ],
   },

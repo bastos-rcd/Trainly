@@ -38,9 +38,10 @@ export default function App() {
 
         <nav
           hidden={isOpen}
-          className="text-white font-extralight absolute top-20 right-4 bg-[#1f1f1f] rounded-xl flex-col justify-center items-center p-4 gap-y-2"
+          className="text-white font-extralight absolute top-16 right-4 bg-[#1f1f1f] rounded-xl flex flex-col justify-center items-center p-4 gap-y-2"
         >
-          {/* <Link to="/">Home</Link> */}
+          <Link to="/import">Importer</Link>
+          <Link to="/export">Exporter</Link>
         </nav>
       </header>
 
