@@ -27,7 +27,9 @@ export default function RootLayout({
         <div className="h-screen flex flex-col">
           <Menu />
 
-          <main className="flex-1 overflow-y-auto p-4">{children}</main>
+          <main className="w-full flex-1 flex flex-col items-center overflow-y-auto p-4 gap-y-4">
+            {children}
+          </main>
         </div>
       </body>
     </html>
