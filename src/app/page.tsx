@@ -22,7 +22,7 @@ export default function Home() {
           onClick={() => handleClick("programs")}
         >
           <h1 className="w-full text-xl text-center font-bold">Plans</h1>
-          <LinkImage link="/programs/edit/0" color="blue" img="add" size={20} />
+          <LinkImage link="/programs/edit/0" color="blue" img="add" />
         </li>
         <li
           className={`w-1/2 ${
@@ -31,7 +31,7 @@ export default function Home() {
           onClick={() => handleClick("workouts")}
         >
           <h1 className="w-full text-xl text-center font-bold">Séances</h1>
-          <LinkImage link="/workouts/edit/0" color="blue" img="add" size={20} />
+          <LinkImage link="/workouts/edit/0/0" color="blue" img="add" />
         </li>
       </ul>
 

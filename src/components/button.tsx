@@ -1,12 +1,11 @@
-import Link from "next/link";
 import Image from "next/image";
 
-export default function LinkImage({
-  link,
+export default function ButtonImage({
+  onClick,
   color,
   img,
 }: {
-  link: string;
+  onClick: () => void;
   color: string;
   img: string;
 }) {
@@ -18,8 +17,8 @@ export default function LinkImage({
   };
 
   return (
-    <Link href={link} className={`${colorMap[color]} rounded-lg p-2`}>
+    <button onClick={onClick} className={`${colorMap[color]} rounded-lg p-2`}>
       <Image src={`/icons/${img}.webp`} alt={img} width={20} height={20} />
-    </Link>
+    </button>
   );
 }

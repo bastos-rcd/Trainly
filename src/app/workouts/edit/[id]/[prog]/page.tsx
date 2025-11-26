@@ -12,10 +12,14 @@ export default function WorkoutEdit() {
   const router = useRouter();
 
   const id = Number(params.id);
+  const prog = Number(params.prog);
   const classInput =
     "w-full bg-slate-50 rounded-lg border border-slate-500 p-2";
 
-  const [workout, setWorkout] = useState<Workout>({ name: "", tag: "" });
+  const [workout, setWorkout] = useState<Workout>({
+    name: "",
+    tag: "",
+  });
   useEffect(() => {
     async function load() {
       if (id === 0) {
@@ -31,7 +35,11 @@ export default function WorkoutEdit() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    const id = await WorkoutService.save(workout);
+    if (prog !== 0) {
+      const id = await WorkoutService.save({ ...workout, id_program: prog });
+    } else {
+      const id = await WorkoutService.save(workout);
+    }
     router.push(`/workouts/${id}`);
   }
 
