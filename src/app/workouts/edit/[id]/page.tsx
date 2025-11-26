@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 
-import { Program } from "@/lib/entities/program";
-import { ProgramService } from "@/lib/services/program.service";
+import { Workout } from "@/lib/entities/workout";
+import { WorkoutService } from "@/lib/services/workout.service";
 
-export default function ProgramEdit() {
+export default function WorkoutEdit() {
   const params = useParams();
   const router = useRouter();
 
@@ -15,14 +15,14 @@ export default function ProgramEdit() {
   const classInput =
     "w-full bg-slate-50 rounded-lg border border-slate-500 p-2";
 
-  const [program, setProgram] = useState<Program>({ name: "", tag: "" });
+  const [workout, setWorkout] = useState<Workout>({ name: "", tag: "" });
   useEffect(() => {
     async function load() {
       if (id === 0) {
-        setProgram({ name: "", tag: "" });
+        setWorkout({ name: "", tag: "" });
       } else {
-        const p = await ProgramService.get(id);
-        if (p) setProgram(p);
+        const w = await WorkoutService.get(id);
+        if (w) setWorkout(w);
       }
     }
     load();
@@ -31,30 +31,30 @@ export default function ProgramEdit() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    const id = await ProgramService.save(program);
-    router.push(`/programs/${id}`);
+    const id = await WorkoutService.save(workout);
+    router.push(`/workouts/${id}`);
   }
 
   return (
     <>
       <h1 className="w-full text-xl text-center font-bold">
-        {id === 0 ? "Création d'un plan" : "Édition de plan"}
+        {id === 0 ? "Création d'une séance" : "Édition d'une séance"}
       </h1>
 
       <form onSubmit={handleSubmit} className="w-full flex flex-col gap-y-4">
         <input
           className={classInput}
           placeholder="Nom"
-          value={program.name}
-          onChange={(e) => setProgram({ ...program, name: e.target.value })}
+          value={workout.name}
+          onChange={(e) => setWorkout({ ...workout, name: e.target.value })}
           required
         />
 
         <input
           className={classInput}
           placeholder="Tag"
-          value={program.tag}
-          onChange={(e) => setProgram({ ...program, tag: e.target.value })}
+          value={workout.tag}
+          onChange={(e) => setWorkout({ ...workout, tag: e.target.value })}
           required
         />
 
@@ -67,7 +67,7 @@ export default function ProgramEdit() {
           </button>
 
           <Link
-            href={id === 0 ? "/" : `/programs/${id}`}
+            href={id === 0 ? "/" : `/workouts/${id}`}
             className="w-1/2 text-center bg-red-300 rounded-lg text-white font-semibold uppercase p-2"
           >
             Annuler

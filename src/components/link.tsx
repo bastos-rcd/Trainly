@@ -12,8 +12,12 @@ export default function LinkImage({
   img: string;
   size: number;
 }) {
+  const colorMap: Record<string, string> = {
+    blue: "bg-blue-300",
+  };
+
   return (
-    <Link href={link} className={`bg-${color}-300 rounded-lg p-2`}>
+    <Link href={link} className={`${colorMap[color]} rounded-lg p-2`}>
       <Image src={`/icons/${img}.webp`} alt={img} width={size} height={size} />
     </Link>
   );
