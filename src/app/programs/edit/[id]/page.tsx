@@ -18,9 +18,7 @@ export default function ProgramEdit() {
   const [program, setProgram] = useState<Program>({ name: "", tag: "" });
   useEffect(() => {
     async function load() {
-      if (id === 0) {
-        setProgram({ name: "", tag: "" });
-      } else {
+      if (id !== 0) {
         const p = await ProgramService.get(id);
         if (p) setProgram(p);
       }

@@ -12,7 +12,7 @@ export default function WorkoutEdit() {
   const router = useRouter();
 
   const id = Number(params.id);
-  const prog = Number(params.prog);
+  const program = Number(params.program);
   const classInput =
     "w-full bg-slate-50 rounded-lg border border-slate-500 p-2";
 
@@ -22,9 +22,7 @@ export default function WorkoutEdit() {
   });
   useEffect(() => {
     async function load() {
-      if (id === 0) {
-        setWorkout({ name: "", tag: "" });
-      } else {
+      if (id !== 0) {
         const w = await WorkoutService.get(id);
         if (w) setWorkout(w);
       }
@@ -35,8 +33,8 @@ export default function WorkoutEdit() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    if (prog !== 0) {
-      const id = await WorkoutService.save({ ...workout, id_program: prog });
+    if (program !== 0) {
+      const id = await WorkoutService.save({ ...workout, id_program: program });
     } else {
       const id = await WorkoutService.save(workout);
     }
@@ -75,7 +73,7 @@ export default function WorkoutEdit() {
           </button>
 
           <Link
-            href={id === 0 ? "/" : `/workouts/${id}`}
+            href={id === 0 ? `/programs/${program}` : `/workouts/${id}`}
             className="w-1/2 text-center bg-red-300 rounded-lg text-white font-semibold uppercase p-2"
           >
             Annuler
