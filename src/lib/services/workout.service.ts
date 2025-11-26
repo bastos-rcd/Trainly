@@ -1,5 +1,6 @@
 import { getDB } from "@/lib/db/indexed-db";
 import { Workout } from "@/lib/entities/workout";
+import { ExerciseService } from "./exercise.service";
 
 export class WorkoutService {
     static async get(id: number): Promise<Workout | undefined> {
@@ -25,6 +26,11 @@ export class WorkoutService {
 
     static async delete(id: number): Promise<void> {
         const db = await getDB();
+        await ExerciseService.list(id).then(async (exercises) => {
+            for (const exercise of exercises) {
+                await ExerciseService.delete(exercise.id!);
+            }
+        });
         return db.delete("workouts", id);
     }
 }

@@ -12,7 +12,7 @@ import { WorkoutService } from "@/lib/services/workout.service";
 import { Exercise } from "@/lib/entities/exercise";
 import { ExerciseService } from "@/lib/services/exercise.service";
 
-export default function ProgramDetail() {
+export default function WorkoutDetail() {
   const params = useParams();
   const router = useRouter();
 
