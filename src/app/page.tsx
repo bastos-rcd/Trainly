@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import LinkImage from "@/components/link";
 import ProgramList from "@/components/program/program-list";
-// import WorkoutList from "@/components/workout-list";
+import WorkoutList from "@/components/workout/workout-list";
 
 export default function Home() {
   const [menu, setMenu] = useState("programs");
@@ -36,7 +36,7 @@ export default function Home() {
       </ul>
 
       {menu === "programs" ? <ProgramList /> : null}
-      {/* {menu === "workouts" ? <WorkoutList /> : null} */}
+      {menu === "workouts" ? <WorkoutList /> : null}
     </>
   );
 }
