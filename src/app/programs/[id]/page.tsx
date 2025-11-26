@@ -5,12 +5,12 @@ import { useParams, useRouter } from "next/navigation";
 
 import LinkImage from "@/components/link";
 import ButtonImage from "@/components/button";
+import WorkoutItem from "@/components/workout/workout-item";
 
 import { Program } from "@/lib/entities/program";
 import { ProgramService } from "@/lib/services/program.service";
 import { Workout } from "@/lib/entities/workout";
 import { WorkoutService } from "@/lib/services/workout.service";
-import WorkoutItem from "@/components/workout/workout-item";
 
 export default function ProgramDetail() {
   const params = useParams();
