@@ -1,36 +1,24 @@
+import { getDB } from "@/lib/db/indexed-db";
 import { Program } from "@/lib/entities/program";
-import {
-    addProgram,
-    getProgram,
-    getPrograms,
-    updateProgram,
-    deleteProgram,
-} from "@/lib/db/program.store";
 
-export const ProgramService = {
-    async get(id: number): Promise<Program | undefined> {
-        return await getProgram(id);
-    },
+export class ProgramService {
+    static async get(id: number): Promise<Program | undefined> {
+        const db = await getDB();
+        return db.get("programs", id);
+    }
 
-    async list(): Promise<Program[]> {
-        return await getPrograms();
-    },
+    static async list(): Promise<Program[]> {
+        const db = await getDB();
+        return db.getAll("programs");
+    }
 
-    async create(program: Program): Promise<number> {
-        if (!program.name.trim())
-            throw new Error("Program must have a name.");
+    static async save(program: Program): Promise<number> {
+        const db = await getDB();
+        return db.put("programs", program);
+    }
 
-        return await addProgram(program);
-    },
-
-    async update(program: Program): Promise<void> {
-        if (!program.id)
-            throw new Error("Program must have an ID to update.");
-
-        return await updateProgram(program);
-    },
-
-    async delete(id: number): Promise<void> {
-        return await deleteProgram(id);
-    },
-};
+    static async delete(id: number): Promise<void> {
+        const db = await getDB();
+        return db.delete("programs", id);
+    }
+}

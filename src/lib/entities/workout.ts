@@ -1,6 +1,5 @@
-import { Exercise } from "./exercise";
-
 export interface Workout {
+    id?: number;
     name: string;
-    exercises: Exercise[];
+    id_program?: number;
 }
