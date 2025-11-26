@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import { TransferService } from "@/lib/services/transfer.service";
 
-export default function ImportPage() {
+export default function Import() {
   const router = useRouter();
 
   const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
